@@ -1,0 +1,36 @@
+import java.util.Scanner;
+
+public class TriangleCheck {
+
+    public static void verify(int a, int b, int c) {
+        if (a + b > c && b + c > a && c + a > b) {
+            if (a == b && b == c) {
+                System.out.println("Equilateral triangle");
+            } else if (a == b || b == c || a == c) {
+                System.out.println("Isosceles triangle");
+            } else {
+                System.out.println("Scalene triangle");
+            }
+        } else {
+            System.out.println("Triangle cannot be formed");
+        }
+    }
+
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        int a, b, c;
+
+        System.out.print("Input the sides of the triangle: ");
+        a = scanner.nextInt();
+        b = scanner.nextInt();
+        c = scanner.nextInt();
+
+        if (a >= 1 && a <= 10 && b >= 1 && b <= 10 && c >= 1 && c <= 10) {
+            verify(a, b, c);
+        } else {
+            System.out.println("Out of range");
+        }
+
+        scanner.close();
+    }
+}
